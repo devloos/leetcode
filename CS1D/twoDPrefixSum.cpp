@@ -1,5 +1,5 @@
-#include <vector>
 #include <iostream>
+#include <vector>
 
 void convertPrefixSum(std::vector<int> &nums) {
   for (int i = 1; i < nums.size(); ++i) {
@@ -36,4 +36,3 @@ int main() {
   }
   return 0;
 }
-

@@ -1,27 +1,21 @@
-class SubrectangleQueries
-{
-private:
+class SubrectangleQueries {
+ private:
   std::vector<std::vector<int>> matrix;
 
-public:
-  SubrectangleQueries(vector<vector<int>> &rec)
-  {
+ public:
+  SubrectangleQueries(vector<vector<int>> &rec) {
     matrix = rec;
   }
 
-  void updateSubrectangle(int row1, int col1, int row2, int col2, int newValue)
-  {
-    for (int row = row1; row <= row2; ++row)
-    {
-      for (int col = col1; col <= col2; ++col)
-      {
+  void updateSubrectangle(int row1, int col1, int row2, int col2, int newValue) {
+    for (int row = row1; row <= row2; ++row) {
+      for (int col = col1; col <= col2; ++col) {
         matrix[row][col] = newValue;
       }
     }
   }
 
-  int getValue(int row, int col)
-  {
+  int getValue(int row, int col) {
     return matrix[row][col];
   }
 };
