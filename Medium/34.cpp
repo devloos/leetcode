@@ -11,17 +11,7 @@ class Solution {
     while (lo <= hi) {
       int mid = (hi + lo) / 2;
       if (nums[mid] == target) {
-        int res1 = mid;
-        int res2 = mid;
-        for (int i = mid; i >= 0 && (nums[i] == target); --i) {
-          res1 = i;
-        }
-
-        for (int i = mid; i < nums.size() && (nums[i] == target); ++i) {
-          res2 = i;
-        }
-
-        return {res1, res2};
+        return {findLowest(nums, mid, target), findHighest(nums, mid, target)};
       }
 
       if (nums[mid] > target) {
@@ -32,5 +22,23 @@ class Solution {
     }
 
     return {-1, -1};
+  }
+
+  int findLowest(const std::vector<int> &nums, int mid, int target) {
+    int res = mid;
+    for (int i = mid; i >= 0 && (nums[i] == target); --i) {
+      res = i;
+    }
+
+    return res;
+  }
+
+  int findHighest(const std::vector<int> &nums, int mid, int target) {
+    int res = mid;
+    for (int i = mid; i < nums.size() && (nums[i] == target); ++i) {
+      res = i;
+    }
+
+    return res;
   }
 };
