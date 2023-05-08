@@ -9,7 +9,6 @@ class Solution {
       int smaller = (height[left] > height[right]) ? right-- : left++;
       mav = max(mav, height[smaller] * dis);
     }
-
     return mav;
   }
 };
