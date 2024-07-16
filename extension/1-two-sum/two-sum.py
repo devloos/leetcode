@@ -7,6 +7,8 @@ class Solution:
             
             dic[num] = i
 
+
+        print('hello')
         
         return []
 
