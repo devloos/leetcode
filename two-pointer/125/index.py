@@ -1,62 +1,21 @@
-# Definition for singly-linked list.
-# class ListNode:
-#     def __init__(self, val=0, next=None):
-#         self.val = val
-#         self.next = next
 class Solution:
-    def reorderList(self, head: Optional[ListNode]) -> None:
+    def isPalindrome(self, s: str) -> bool:
         """
-        Need to grab length of list
-        Split List
-        Reverse second half
-        Merge into first list
+        Two pointer method and we are breaking early if a key doesnt match
         """
 
-        size = 0
-        curr = head
+        l = 0
+        r = len(s) - 1
 
-        while curr:
-            size += 1
-            curr = curr.next
+        while l < r:
+            if not s[l].isalnum():
+                l += 1
+            elif not s[r].isalnum():
+                r -= 1
+            elif s[l].lower() != s[r].lower():
+                return False
+            else:
+                l += 1
+                r -= 1
 
-        l1 = head
-        l2 = None
-        i = size // 2
-
-        curr = head
-        while curr and i > 0:
-            i -= 1
-
-            if i <= 0:
-                l2 = curr.next
-                curr.next = None
-                continue
-
-            curr = curr.next
-
-        prev = None
-        curr = l2
-
-        while curr:
-            tmp = curr.next
-            curr.next = prev
-            prev = curr
-            curr = tmp
-
-        l2 = prev
-
-        curr = l1
-        prev = None
-        while curr and l2:
-            iso = l2
-            l2 = l2.next
-
-            tmp = curr.next
-            curr.next = iso
-            iso.next = tmp
-
-            prev = iso
-            curr = tmp
-
-        if l2:
-            prev.next = l2
+        return True
